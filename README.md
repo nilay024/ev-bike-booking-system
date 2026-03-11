@@ -110,6 +110,8 @@ Authorization: Bearer <your_token>
 
 - Import the Postman collection provided in the project for testing all APIs.(added in the repository with name of **"EV Bike Booking API.postman_collection.json"**)
 
+- Booking time input must be in 24 hour formate (eg. 18:30)
+
 **Replace placeholders:**
 
 - {{token}} → JWT received after login
