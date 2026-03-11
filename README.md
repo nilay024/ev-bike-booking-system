@@ -83,7 +83,7 @@ npm run seed
 5. **Start the server**
 
 ```bash
-npm run dev
+npm run start
 ```
 
 Server will start on http://localhost:5000
