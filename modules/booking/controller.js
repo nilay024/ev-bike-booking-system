@@ -46,16 +46,41 @@ class BookingController {
   // Admin: get all bookings
   async getAllBookings(req, res) {
     try {
+      const { page = 1, limit = 10 } = req.query;
+
+      const pageNumber = parseInt(page);
+      const limitNumber = parseInt(limit);
+
+      const total = await Booking.countDocuments();
+
       const bookings = await Booking.find()
         .populate('userId', 'name email phone')
         .populate('bikeId', 'bikeName model range price')
         .select('-__v')
+        .skip((pageNumber - 1) * limitNumber)
+        .limit(limitNumber)
+        .sort({ createdAt: -1 })
         .lean();
 
-      return successResponse({ res, message: 'Bookings fetched', data: bookings });
+      return successResponse({
+        res,
+        message: 'Bookings retrieved successfully',
+        data: bookings,
+        meta: {
+          total,
+          page: pageNumber,
+          limit: limitNumber,
+          totalPages: Math.ceil(total / limitNumber),
+        },
+        statusCode: 200,
+      });
     } catch (error) {
-      console.error('Error fetching bookings:', error);
-      return errorResponse({ res, message: 'Internal server error', statusCode: 500 });
+      console.error('Error retrieving bookings:', error);
+      return errorResponse({
+        res,
+        message: 'Internal server error',
+        statusCode: 500,
+      });
     }
   }
 

@@ -136,15 +136,24 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/api/bookings",
-							"protocol": "http",
+							"raw": "{{base_url}}/bookings?page=1&limit=10",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"bookings"
+							],
+              "query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": " "
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
 							]
 						}
 					},
@@ -169,12 +178,10 @@
 							"raw": "{\n  \"bikeId\": \"{{bikeId}}\",\n  \"date\": \"2026-03-15\",\n  \"time\": \"11:00\",\n  \"city\": \"Ahmedabad\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/bookings",
-							"protocol": "http",
+							"raw": "{{base_url}}/bookings",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"bookings"
@@ -202,12 +209,10 @@
 							"raw": "{\n  \"status\": \"Confirmed\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/bookings/{{bookingId}}/status",
-							"protocol": "http",
+							"raw": "{{base_url}}/bookings/{{bookingId}}/status",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"bookings",
