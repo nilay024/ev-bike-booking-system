@@ -3,6 +3,7 @@ import BookingController from "./controller.js";
 import BookingValidator from "./validator.js";
 import auth from "../../middleware/auth.js";
 import admin from "../../middleware/admin.js";
+import user from "../../middleware/user.js";
 import validate from "../../middleware/validate.js";
 
 const router = express.Router();
@@ -15,6 +16,7 @@ const router = express.Router();
 router.post(
   "/",
   auth,
+  user,
   validate(BookingValidator.createBooking),
   BookingController.createBooking
 );
