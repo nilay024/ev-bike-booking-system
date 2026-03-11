@@ -141,7 +141,6 @@
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"bookings"
 							],
               "query": [
@@ -183,7 +182,6 @@
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"bookings"
 							]
 						}
@@ -214,7 +212,6 @@
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"bookings",
 								"{{bookingId}}",
 								"status"
