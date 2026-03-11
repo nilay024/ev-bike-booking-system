@@ -90,13 +90,57 @@ Server will start on http://localhost:5000
 
 ---
 
+## API Endpoints
+
+**Authentication**
+
+| Method | Endpoint           | Description          |
+| ------ | ------------------ | -------------------- |
+| POST   | /api/auth/register | Register a new user  |
+| POST   | /api/auth/login    | Login user & get JWT |
+
+---
+
+**Bikes**
+
+| Method | Endpoint       | Description                                  |
+| ------ | -------------- | -------------------------------------------- |
+| GET    | /api/bikes     | Get all bikes (supports pagination & search) |
+| GET    | /api/bikes/:id | Get bike details by ID                       |
+
+**Notes for GET /api/bikes:**
+
+- Query parameters:
+  - `page` (number, default: 1)
+  - `limit` (number, default: 10)
+  - `search` (string, optional — search by bike name or model)
+
+---
+
+**Bookings (User)**
+
+| Method | Endpoint      | Description      |
+| ------ | ------------- | ---------------- |
+| POST   | /api/bookings | Book a test ride |
+
+---
+
+**Bookings (Admin)**
+
+| Method | Endpoint                 | Description                                       |
+| ------ | ------------------------ | ------------------------------------------------- |
+| GET    | /api/bookings            | View all bookings (pagination & search supported) |
+| PATCH  | /api/bookings/:id/status | Update booking status                             |
+
+**Notes for GET /api/bookings:**
+
+- Query parameters:
+  - `page` (number, default: 1)
+  - `limit` (number, default: 10)
+
+---
+
 ## Note
-
-- All protected routes require JWT token in the Authorization header:
-
-```bash
-Authorization: Bearer <your_token>
-```
 
 **Booking validation prevents:**
 
