@@ -2,6 +2,7 @@ import Joi from "joi";
 import mongoose from "mongoose";
 
 class BookingValidator {
+  // Validate booking creation data
   createBooking(data) {
     const schema = Joi.object({
       bikeId: Joi.string().required().custom((value, helpers) => {

@@ -21,7 +21,7 @@ router.post(
 
 /**
  * @route GET /api/bookings
- * @desc Admin: Get all bookings
+ * @desc Admin: Get all bookings (authenticated seed admin)
  * @access Admin
  */
 router.get(
@@ -33,7 +33,7 @@ router.get(
 
 /**
  * @route PATCH /api/bookings/:id/status
- * @desc Admin: Update booking status (Pending / Confirmed / Cancelled / Completed)
+ * @desc Admin: Update booking status (Pending / Confirmed / Cancelled / Completed) (authenticated seed admin)
  * @access Admin
  */
 router.patch(
