@@ -90,8 +90,7 @@ class BookingController {
       const { id } = req.params;
       const { status } = req.body;
       const validStatuses = ['Pending', 'Confirmed', 'Cancelled', 'Completed'];
-
-      console.log('Updating booking status:', { id, status });
+      
       if (!validStatuses.includes(status))
         return errorResponse({ res, message: 'Invalid status', statusCode: 400 });
 
