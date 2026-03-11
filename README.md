@@ -117,5 +117,6 @@ Authorization: Bearer <your_token>
 - {{token}} → JWT received after login
 - {{bikeId}} → Bike \_id from DB
 - {{bookingId}} → Booking \_id from DB
+- {{adminToken}} → JWT received after login with default admin
 
 ---
