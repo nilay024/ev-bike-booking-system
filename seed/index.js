@@ -1,9 +1,10 @@
-import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import connectDB from '../config/db.js';
 
 import User from '../modules/auth/schema.js';
 import Bike from '../modules/bike/schema.js';
+
+import adminSeedData from './data/admin.js';
 import bikeSeedData from './data/bike.js';
 
 dotenv.config();
@@ -56,15 +57,7 @@ class Seed {
         return;
       }
 
-      const hashedPassword = await bcrypt.hash('Admin@123', 10);
-
-      const admin = await User.create({
-        name: 'Super Admin',
-        email: 'admin@test.com',
-        password: hashedPassword,
-        role: 'admin',
-        phone: '0000000000',
-      });
+      const admin = await User.create(adminSeedData);
 
       console.log('✅ Super admin created:');
       console.log('   Email:', admin.email);
